@@ -24,13 +24,13 @@ public class SearchController {
 
     @GetMapping(value = "/totalCount/{keyword}")
     public Mono<SearchCount> getSearchCountAuthorized(@PathVariable String keyword,
-                                                      @RegisteredOAuth2AuthorizedClient( "github")OAuth2AuthorizedClient authorizedClient){
+                                                      @RegisteredOAuth2AuthorizedClient("github") OAuth2AuthorizedClient authorizedClient) {
         return this.webClient.get().uri(apiUrl, uriBuilder -> uriBuilder
-                .path("/search/code")
-                .queryParam("q", keyword).build())
-                .attributes(oauth2AuthorizedClient(authorizedClient))
-                .retrieve()
-                .bodyToMono(SearchCount.class);
+            .path("/search/code")
+            .queryParam("q", keyword).build())
+            .attributes(oauth2AuthorizedClient(authorizedClient))
+            .retrieve()
+            .bodyToMono(SearchCount.class);
     }
 
 }

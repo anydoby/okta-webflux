@@ -15,13 +15,13 @@ public class SecurityConfiguration {
     public SecurityWebFilterChain configure(ServerHttpSecurity http) {
 
         http
-                .authorizeExchange((exchanges) ->
-                        exchanges
-                                .anyExchange().authenticated()
-                )
-                .oauth2Login(withDefaults())
-                .exceptionHandling()
-                .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint("/oauth2/authorization/okta"));
+            .authorizeExchange((exchanges) ->
+                exchanges
+                    .anyExchange().authenticated()
+            )
+            .oauth2Login(withDefaults())
+            .exceptionHandling()
+            .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint("/oauth2/authorization/okta"));
         return http.build();
 
     }

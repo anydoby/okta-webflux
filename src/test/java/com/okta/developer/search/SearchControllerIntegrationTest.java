@@ -38,7 +38,6 @@ public class SearchControllerIntegrationTest {
         registry.add("service.github", () -> "http://localhost:" + mockWebServer.getPort());
     }
 
-
     @Test
     public void testGetTotalCount(){
 
