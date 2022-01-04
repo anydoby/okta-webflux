@@ -13,15 +13,15 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityWebFilterChain configure(ServerHttpSecurity http) {
-
         http
-            .authorizeExchange((exchanges) ->
-                exchanges
-                    .anyExchange().authenticated()
-            )
-            .oauth2Login(withDefaults())
-            .exceptionHandling()
-            .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint("/oauth2/authorization/okta"));
+        .csrf().disable()
+        .authorizeExchange((exchanges) ->
+        exchanges
+        .anyExchange().authenticated()
+                )
+        .oauth2Login(withDefaults())
+        .exceptionHandling()
+        .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint("/oauth2/authorization/okta"));
         return http.build();
 
     }

@@ -1,18 +1,16 @@
 okta:
   oauth2:
-    issuer: https://{yourOktaDomain}/oauth2/default
-    client-secret: {clientId}
-    client-id: {clientSecret}
+    issuer: https://dev-94528537.okta.com/oauth2/default
+    client-secret: XtbkpAMYTMz7B22x7heNwDiR1g9J49iJzW9FIpGy
+    client-id: 0oa3fliep9eL6NQbL5d7
     scopes: openid, profile, email
+    redirect-uri: /authorization-code/callback
 
-service:
-  github: https://api.github.com
-
-spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            client-id: {githubClientId}
-            client-secret: {githubClientSecret}
+logging:
+   pattern:
+     console: "%msg%n"
+   level:
+     root: debug
+     org:
+       springframework:
+         security: debug
